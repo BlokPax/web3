@@ -1,0 +1,34 @@
+{
+  "name": "blokpax/web3php",
+  "description": "Web3 library for intracting with ethereum (or evm, more specifically) contracts.",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Blokpax\\Web3\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Jim Rubenstein",
+      "email": "jim@blokpax.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require-dev": {
+    "pestphp/pest": "3.x-dev"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "require": {
+    "kornrunner/keccak": "dev-main"
+  }
+}
