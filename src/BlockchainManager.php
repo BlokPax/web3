@@ -24,11 +24,11 @@ class BlockchainManager
 
         $config = $this->config($driver);
 
-        if (empty($config['url'])) {
-            throw new Exception("Driver '{$driver}' missing configuration 'url' for provider.");
+        if (empty($config['provider'])) {
+            throw new Exception("Driver '{$driver}' missing configuration 'provider' for provider.");
         }
 
-        return new Provider($config['url']);
+        return new Provider($config['provider']);
     }
 
     public function eth()
