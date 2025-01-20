@@ -29,6 +29,17 @@
     }
   },
   "require": {
-    "kornrunner/keccak": "dev-main"
+    "kornrunner/keccak": "^1.1",
+    "illuminate/support": "^10|^11|^12"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Blokpax\\Web3\\ServiceProvider"
+      ],
+      "aliases": {
+        "Web3": "Blokpax\\Web3\\Facade"
+      }
+    }
   }
 }
