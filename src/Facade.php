@@ -8,6 +8,6 @@ class Facade extends BaseFacade
 {
     protected static function getFacadeAccessor()
     {
-        return BlockchainManager::class;
+        return 'web3';
     }
 }

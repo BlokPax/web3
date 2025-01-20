@@ -10,10 +10,11 @@ class ServiceProvider extends LaravelServiceProvider
     {
         $path = $this->configPath();
         $this->mergeConfigFrom($path, 'web3');
-
-        $this->app->bind(BlockhainManager::class, function ($app) {
+        $this->app->singleton(BlockchainManager::class, function ($app) {
             return new BlockchainManager(config('web3'));
         });
+
+        $this->app->alias(BlockchainManager::class, 'web3');
     }
 
     private function configPath()
