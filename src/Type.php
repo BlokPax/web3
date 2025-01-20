@@ -3,6 +3,7 @@
 namespace Blokpax\Web3;
 
 use Blokpax\Web3\Types as Types;
+use InvalidArgumentException;
 
 class Type
 {

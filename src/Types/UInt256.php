@@ -2,9 +2,10 @@
 
 namespace Blokpax\Web3\Types;
 
+use Blokpax\Web3\Contracts\Type as TypeContract;
 use InvalidArgumentException;
 
-class UInt256
+class UInt256 implements TypeContract
 {
     public function __construct(public readonly string|int $value)
     {
@@ -13,7 +14,12 @@ class UInt256
         }
     }
 
-    public static function encode(self|string|int $value): string
+    public function value(): mixed
+    {
+        return $this->value;
+    }
+
+    public static function encode(mixed $value): string
     {
         if ($value instanceof self) {
             $value = $value->value;
@@ -22,7 +28,7 @@ class UInt256
         return sprintf('%064s', dechex($value));
     }
 
-    public static function decode(string $data): string|int
+    public static function decode(string $data): mixed
     {
         return hexdec($data);
     }

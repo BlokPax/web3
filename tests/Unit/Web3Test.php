@@ -2,6 +2,7 @@
 
 use Blokpax\Web3\Abi;
 use Blokpax\Web3\Contract;
+use Blokpax\Web3\Contracts\EthContract;
 use Blokpax\Web3\Provider;
 use Blokpax\Web3\Transaction;
 use Blokpax\Web3\Types\Address;
@@ -90,4 +91,28 @@ it('Decodes ownerOf result from mock provider', function () {
     $tx = $this->contract->ownerOf(12345);
     $result = $mockProvider->call($tx);
     expect($result)->toBe(sprintf('0x%040s', '55555'));
+});
+
+it('initializes a generic erc721 contract', function () {
+    $mockProvider = new BalanceOfMockProvider('http://mock-rpc-url');
+    $contract = EthContract::erc721(sprintf('0x%040s', '12345'));
+    $tx = $contract->balanceOf(sprintf('0x%040s', 12345));
+    $result = $mockProvider->call($tx);
+    expect($result)->toBe(1193046);
+});
+
+it('initializes a generic erc1155  contract', function () {
+    $mockProvider = new BalanceOfMockProvider('http://mock-rpc-url');
+    $contract = EthContract::erc1155(sprintf('0x%040s', '12345'));
+    $tx = $contract->balanceOf(sprintf('0x%040s', 12345), 1);
+    $result = $mockProvider->call($tx);
+    expect($result)->toBe(1193046);
+});
+
+it('initializes a generic erc20 contract', function () {
+    $mockProvider = new BalanceOfMockProvider('http://mock-rpc-url');
+    $contract = EthContract::erc20(sprintf('0x%040s', '12345'));
+    $tx = $contract->balanceOf(sprintf('0x%040s', 12345));
+    $result = $mockProvider->call($tx);
+    expect($result)->toBe(1193046);
 });
