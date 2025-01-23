@@ -1,6 +1,7 @@
 {
   "name": "blokpax/web3php",
   "description": "Web3 library for intracting with ethereum (or evm, more specifically) contracts.",
+  "version": "0.1.0",
   "type": "library",
   "license": "MIT",
   "autoload": {

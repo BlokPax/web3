@@ -40,4 +40,9 @@ class BlockchainManager
     {
         return $this->driver('polygon');
     }
+
+    public function __call($method, $params)
+    {
+        return $this->driver()->$method(...$params);
+    }
 }

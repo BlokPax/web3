@@ -25,7 +25,7 @@ class Provider
 
         $response = $this->sendRequest($payload);
 
-        return $tx->decode($response['result']) ?? null;
+        return $tx->decode(str_replace('0x', '', $response['result'])) ?? null;
     }
 
     protected function sendRequest(string $payload): array
