@@ -11,9 +11,9 @@ abstract class EthContract
     const CONTRACT_ERC20 = 'ERC20';
 
     protected static $abis = [
-        'ERC721'  => 'Erc721.json',
-        'ERC1155' => 'Erc1155.json',
-        'ERC20'   => 'Erc20.json',
+        'ERC721'  => 'ERC721.json',
+        'ERC1155' => 'ERC1155.json',
+        'ERC20'   => 'ERC20.json',
     ];
 
     public static function erc721(string $address)
